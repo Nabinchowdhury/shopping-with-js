@@ -32,11 +32,7 @@ function showToCart() {
 <td>$ ${totalPrice}</td>
 `
     productCart.appendChild(cartItemsTotalPrice)
-
-
-
 }
-
 
 function addToCart(event) {
 
