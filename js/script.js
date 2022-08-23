@@ -1,10 +1,11 @@
-
 const cartItemsArray = [];
-const productCart = document.getElementById("products-cart");
-
 
 function showToCart() {
     let totalPrice = 0;
+
+
+    const productCart = document.getElementById("products-cart");
+    productCart.innerText = "";
 
     for (let i = 0; i < cartItemsArray.length; i++) {
 
@@ -17,7 +18,7 @@ function showToCart() {
             `        
             <th>${i + 1}</th>
 <td>${cartItemsArray[i].pName}</td>
-<td>${cartItemsArray[i].pPrice}</td>
+<td>$ ${cartItemsArray[i].pPrice}</td>
 `
         productCart.appendChild(cartItems)
     }
@@ -28,39 +29,29 @@ function showToCart() {
         `
     <th></th>
 <td>Total Price</td>
-<td>${totalPrice}</td>
+<td>$ ${totalPrice}</td>
 `
     productCart.appendChild(cartItemsTotalPrice)
+
+
+
 }
 
 
-
-
 function addToCart(event) {
-    productCart.innerText = "";
+
     const productName = event.parentNode.parentNode.children[0].innerText
     const productPrice = event.parentNode.parentNode.children[1].children[0].innerText
 
     const productDetails = { pName: productName, pPrice: productPrice }
 
     cartItemsArray.push(productDetails);
-    console.log(cartItemsArray);
+    console.log(cartItemsArray.length);
+
+
+    const productCount = document.getElementById("total-products");
+
+    productCount.innerText = cartItemsArray.length;
+
     showToCart();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // cartItemsArray.push(cartItems.innerText);
-    // console.log(cartItemsArray);
